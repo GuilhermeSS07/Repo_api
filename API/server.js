@@ -2,10 +2,26 @@ const express = require('express');
 
 const api = express()
 
-const drive = "mongodb+srv://gui2007s_db_user:admin@cluster0.z8hgf6n.mongodb.net/?appName=Cluster0"
+const ejs = require('ejs');
 
+const {MongoClient} = require('mongodb');
 
-//mongodb+srv://gui2007s_db_user:admin@cluster0.z8hgf6n.mongodb.net/?appName=Cluster0
+const dotenv = require('dotenv');
+
+dotenv.config();
+
+const nodemon = require('nodemon');
+
+const url = process.env.DATABASE_URL;
+
+const ObjectId = require('mongodb').ObjectId;
+
+const client = new MongoClient(url);    
+
+const db = client.db("pessoa");
+
+const collection = db.collection("crud");
+
 
 api.listen(3000, function(){
    console.log("O servidor está rodando na porta 3000")
@@ -13,6 +29,6 @@ api.listen(3000, function(){
 })
 
 api.get("/", (req, res) => {
-    res.send("Ola mundo")
+    res.send("Olá mundo")
 });
 
