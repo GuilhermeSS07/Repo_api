@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Formularios</title>
+</head>
+
+<body>
+    <h2>Relatorios</h2>
+    <link rel="stylesheet" href="/style.css">
+    <table border="1">
+        <thead>
+            <tr>
+                <td>Nome</td>
+                <td>Sobrenome</td>
+                <td>Ação</td>
+            </tr>
+        </thead>
+        <tbody>
+            <% historias.forEach(function(details) { %>
+                <tr>
+                    <td>
+                        <%= details.name %>
+                    </td>
+                    <td>
+                    
+                    </td>
+                    <td><a href="/edit/<%= details._id %>">Alterar</a> - <a href="/delete/<%= details._id %>">Remover</a>
+                    </td>
+                </tr>
+                <% }) %>
+        </tbody>
+    </table> <button><a href="/index">CriarAlgo Novo</a></button>
+</body>
+
+</html>
