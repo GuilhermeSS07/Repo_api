@@ -26,7 +26,7 @@ api.post("/show", async (req, res)=>{
 })
 
 api.get("/show", async (req, res)=>{
-    const cadastro = await collection.find().toArray()
+    const crud = await collection.find().toArray()
     // visualizar o registro no Show.ejs
     res.render("show.ejs", {crud})
 })
@@ -58,7 +58,9 @@ iniciar().catch(function(erro){
 // Visualizar o editar
 
 api.get("/edit/:id", async (req, res)=>{
-    const registro = await collection.find({_id: new ObjectId(req.params.id)}).toArray()
+    const crud = await collection.find(
+        {_id: new ObjectId(req.params.id)}).toArray()
+    res.render('edit.ejs', {crud})
 })
 
 
